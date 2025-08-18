@@ -1,0 +1,121 @@
+/* Estilos principales */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1f33;
+  color: #fff;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.container {
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #123257;
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.card:hover {
+  background: #1a3a61;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.card-sub {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  background: #0f2a47;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-box {
+  background: #0f2744;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border-radius: 8px;
+  border: 1px solid #2a4f7f;
+  background: #0a1c31;
+  color: #fff;
+}
+
+.btn {
+  padding: 10px 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #3da9fc;
+  color: #00152a;
+}
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid #3da9fc;
+  color: #fff;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: #0c2746;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}

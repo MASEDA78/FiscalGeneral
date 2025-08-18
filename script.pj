@@ -1,0 +1,59 @@
+// --- Helpers ---
+const $ = (q) => document.querySelector(q);
+
+function showToast(message, ms = 2500){
+  const el = $("#toast");
+  el.textContent = message;
+  el.classList.add("show");
+  setTimeout(() => el.classList.remove("show"), ms);
+}
+
+// --- Modal logic ---
+const modal = $("#modalReemplazo");
+const btnOpen = $("#btnReemplazo");
+const btnCancel = $("#cancelar");
+const form = $("#formReemplazo");
+
+btnOpen.addEventListener("click", () => {
+  if (typeof modal.showModal === "function") {
+    modal.showModal();
+  } else {
+    modal.setAttribute("open", "");
+  }
+});
+
+btnCancel.addEventListener("click", () => {
+  form.reset();
+  if (typeof modal.close === "function") modal.close();
+  else modal.removeAttribute("open");
+});
+
+// --- WhatsApp send ---
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const escuela = $("#escuela").value?.trim();
+  const mesa = $("#mesa").value?.trim();
+  const fiscal = $("#fiscal").value?.trim();
+
+  if(!escuela){ showToast("Seleccioná una escuela."); return; }
+  if(!mesa){ showToast("Ingresá el número de mesa."); return; }
+  if(!fiscal){ showToast("Ingresá el nombre del/la fiscal."); return; }
+
+  const mensaje = 
+`Solicitud de reemplazo:
+Escuela: ${escuela}
+Mesa: ${mesa}
+Fiscal a reemplazar: ${fiscal}`;
+
+  const telefono = "5491168650195";
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank", "noopener");
+
+  form.reset();
+  if (typeof modal.close === "function") modal.close();
+  else modal.removeAttribute("open");
+
+  showToast("Abriendo WhatsApp para enviar la solicitud…");
+});

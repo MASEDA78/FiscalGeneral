@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Fiscal General</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="https://github.com/MASEDA78/Mifiscal4.1/blob/main/desender.png?raw=true">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img
+        src="https://github.com/MASEDA78/Mifiscal4.1/blob/main/desender.png?raw=true"
+        alt="Logo"
+        class="logo"
+        onerror="this.src='https://raw.githubusercontent.com/MASEDA78/Mifiscal4.1/refs/heads/main/desender.png';"
+      />
+      <h1 class="title">MI FISCAL GENERAL</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <a class="card" href="https://padron.gba.gob.ar" target="_blank" rel="noopener">
+        <span class="card-title">Consulta Padrón</span>
+        <span class="card-sub">padron.gba.gob.ar</span>
+      </a>
+
+      <a class="card" href="https://tramites.renaper.gob.ar/mi_ejemplar" target="_blank" rel="noopener">
+        <span class="card-title">Último ejemplar DNI</span>
+        <span class="card-sub">RENAPER</span>
+      </a>
+
+      <a class="card" href="https://elecciones.castelli.gob.ar/mesas.php" target="_blank" rel="noopener">
+        <span class="card-title">Estadística de Mesas</span>
+        <span class="card-sub">Municipio de Castelli</span>
+      </a>
+
+      <a class="card" href="https://www.juntaelectoral.gba.gov.ar/elecciones-provinciales.php" target="_blank" rel="noopener">
+        <span class="card-title">Documentación Junta Electoral</span>
+        <span class="card-sub">Provincia de Buenos Aires</span>
+      </a>
+
+      <button class="card card-action" id="btnReemplazo" type="button">
+        <span class="card-title">Solicitud de Reemplazo de Fiscal</span>
+        <span class="card-sub">Enviar por WhatsApp</span>
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>comando electoral pjcastelli</p>
+  </footer>
+
+  <!-- Modal Reemplazo -->
+  <dialog id="modalReemplazo" class="modal">
+    <form method="dialog" class="modal-box" id="formReemplazo">
+      <h2>Solicitud de reemplazo</h2>
+
+      <label class="input-label" for="escuela">Escuela (lista desplegable)</label>
+      <select id="escuela" class="input" required>
+        <option value="" selected disabled>Seleccionar escuela…</option>
+        <option>ESC. SECU. 1</option>
+        <option>EP N° 1</option>
+        <option>EP N° 13</option>
+        <option>HECR</option>
+        <option>501</option>
+      </select>
+
+      <label class="input-label" for="mesa">Número de mesa</label>
+      <input id="mesa" class="input" type="number" min="1" step="1" placeholder="Ej.: 123" required />
+
+      <label class="input-label" for="fiscal">Nombre del/la fiscal a reemplazar</label>
+      <input id="fiscal" class="input" type="text" maxlength="80" placeholder="Nombre y apellido" required />
+
+      <div class="actions">
+        <button type="button" class="btn ghost" id="cancelar">Cancelar</button>
+        <button type="submit" class="btn primary">Enviar por WhatsApp</button>
+      </div>
+      <p class="hint">Se enviará automáticamente al +54 9 11 6865-0195.</p>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.pj"></script>
+</body>
+</html>
