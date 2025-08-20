@@ -55,5 +55,5 @@ Fiscal a reemplazar: ${fiscal}`;
   if (typeof modal.close === "function") modal.close();
   else modal.removeAttribute("open");
 
-  showToast("Abriendo WhatsApp para enviar la solicitud…");
+  
 });
